@@ -51,7 +51,7 @@ Scope {
                 color: "red"
                 width:10
                 height:10
-                x: index
+                x: 15
             }
 
         }
