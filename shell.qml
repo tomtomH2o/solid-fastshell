@@ -52,6 +52,7 @@ Scope {
                 width:10
                 height:10
                 x: 15
+                y: 23
             }
 
         }
