@@ -1,0 +1,53 @@
+top bar
+    workspaces thingy [ 1 2 3 4 5 6 7 8 9 ] highlight focused? unfocused-text colour for non focused, dim inactive (no windows) -- DONE ~ not exactly the same path as desired but its fine//fix latr?
+    active window deets, icon title ? -- DONE ~ no image but i cant be fucked
+    clock ~ hh:mm:ss AP ~ , on hover ~ d MMMM yyyy hh:mm:ss AP t ~  --[centered] -- DONE
+    gpu usage temp clock powerdraw
+    cpu usage temp clock powerdraw, on hover show individual cores
+    media~> show progress bar do the animated thing that android got, previous pause next. on super + q or click not on progres bar open media menu> audio viz, extra info, and media switcher, and also volume and stuff here
+
+    systray :sob:
+    powermenu and shi
+
+
+bottom bar > a gnome like dock? displays over fullscreen apps super+D maybe
+    big icons, on hover show visualisation and title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2 lists
+Hyprland.workspaces
+    name, active, focusaed, id
+    1 3 4 5 6 7 8
+workspaceNumbers
+    number
+    1 2 3 4 5 6 7 8 9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
