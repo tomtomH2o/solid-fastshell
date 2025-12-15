@@ -17,6 +17,10 @@ ive only tested this on my own arch install on my own hardware so testing would 
 Arch - Linux 6.17.9.arch1-1  ~  hyprland 0.52.2-2  ~  quickshell 0.2.1-3 . this works
 
 
+check the todo file to see waht needs doing, or checkout Quickshell-plans to see my visson for the future
+
+
+
 
 as said earlier this is my first time using both git and github so there's going to be many roadblocks in the form of my own incompetence so please please please be patient
 
