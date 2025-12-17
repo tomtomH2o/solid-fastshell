@@ -25,3 +25,4 @@ check the todo file to see waht needs doing, or checkout Quickshell-plans to see
 as said earlier this is my first time using both git and github so there's going to be many roadblocks in the form of my own incompetence so please please please be patient
 
 you can contact me SolidTax/Tommy at hazzardoustommy@gmail.com
+btw im in the process of switching between two github accounts rn
