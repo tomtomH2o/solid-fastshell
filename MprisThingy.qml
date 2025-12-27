@@ -10,26 +10,40 @@ ClippingRectangle {
     implicitHeight: textHere.implicitHeight+squigglePath.confAmplitude*2+10
     implicitWidth: 300
     color: '#00000000'
-    property var playing: false
-    property var activePlayer: {
-        var players = Mpris.players.values
-        const desiredPlayers = []
 
+    
 
-        if (players.length === 0){return null}
+    property var desiredPlayers: [
+        "Chrome",
+        "Spotify",
+        "VLC media player"
+    ]
 
-        const playing = players.find((play)  => play.playbackState === MprisPlaybackState.Playing)
-        if (playing) {
-            console.log("yes")
-            root.playing=true
-        } else {
-            console.log("no")
-            root.playing=false
+    property var mprisPlaceholderVars: {"trackTitle":"notFound","position":0,"length":10,"playbackState":MprisPlaybackState.Stopped,"positionChanged":function() {}}
+    
+    property var playerDict: {
+        var out = {}
+        var MprisVars = Mpris.players.values
+        for (const e of MprisVars) {
+            console.log("ts bro " + e.identity)
         }
+        for (const player of desiredPlayers) {
+            console.log("looking for " + player)
+            
+            const found = MprisVars.find(p => p.identity == player)
+            console.log(found ? "found "+player : "failed :(" )
 
-
-        return playing ? playing : players[0];
+            const safeFound = found || mprisPlaceholderVars //makes the rest of the code not shit itself
+            
+            out[player] = safeFound
+        }
+        console.log(" ")
+        return out
     }
+    property var activePlayer: playerDict["Chrome"]
+
+    property var playing: activePlayer.playbackState == MprisPlaybackState.Playing
+    
 
     Item {
         id:squiggleRoot
@@ -54,7 +68,7 @@ ClippingRectangle {
             id:progressBall
             width:squigglePath.confAmplitude*1.5
             height:squigglePath.confAmplitude*1.5
-            color:SolidTheme.colorA
+            color:Solid.color.colorA
             radius:width/2
             anchors.horizontalCenter:squiggleClip.right
             anchors.verticalCenter:squiggleClip.verticalCenter
@@ -73,7 +87,7 @@ ClippingRectangle {
 
                 ShapePath {
                     id:squigglePath
-                    strokeColor:SolidTheme.colorA
+                    strokeColor:Solid.color.colorA
                     fillColor:"transparent"
                     strokeWidth:2
 
@@ -94,13 +108,13 @@ ClippingRectangle {
                 delegate: PathQuad {
                     required property var index
                     property var idex: index + 1
-                    property var p: squigglePath
+                    property var p: squigglePath // piss of vscode the code works
                     property var base: p.phase + Math.floor(index/2) * p.wavelength
 
 
                     y:p.middleY
                     controlY:index % 2 == 0 ? p.middleY-p.amplitude : p.middleY+p.amplitude
-                    //you'd not belive how much of a pain in the ass ts was
+                    //you'd not belive how much of a pain in the ass ts was, if u want clarification email me bozo
                     x:(index%2==0) ?  base + p.wavelength * 0.5 :  base + p.wavelength * 1
                     controlX:(index%2==0) ?  base + p.wavelength * 0.25 :  base + p.wavelength * 0.75
 
@@ -149,7 +163,7 @@ ClippingRectangle {
     
     Text {
         id: textHere
-        color: SolidTheme.colorA
+        color: Solid.color.colorA
         text: root.activePlayer.trackTitle
         
         onWidthChanged: {

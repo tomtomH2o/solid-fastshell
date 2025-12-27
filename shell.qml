@@ -6,5 +6,5 @@ import Quickshell.Widgets
 
 Scope {
     Bar {}
-    BottomBar {}
+    //BottomBar {}
 }

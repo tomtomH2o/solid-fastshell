@@ -5,14 +5,14 @@ import Quickshell.Hyprland
 
 
 Row{
-    spacing: SolidTheme.paddingSubWidgetSpacing
+    spacing: Solid.spacing.paddingSubWidgetSpacing
     Repeater{
         model: Hyprland.workspaces
         Text {
             id: textnumber
             required property var modelData
             text: modelData.name
-            color:mouseHeres.containsMouse ? SolidTheme.colorSelected : modelData.focused ?  SolidTheme.colorA : modelData.active ? SolidTheme.colorTextInacive : SolidTheme.colorTextDimm 
+            color:mouseHeres.containsMouse ? Solid.color.colorSelected : modelData.focused ?  Solid.color.colorA : modelData.active ? Solid.color.colorTextInacive : Solid.color.colorTextDimm 
             MouseArea {
                 id: mouseHeres
                 anchors.fill: parent

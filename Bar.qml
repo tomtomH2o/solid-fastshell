@@ -13,7 +13,7 @@ Scope {
         model: Quickshell.screens
 
         PanelWindow {
-            color: SolidTheme.colorBG
+            color: Solid.color.colorBG
             id: topBar
             required property var modelData
             screen: modelData
@@ -30,7 +30,7 @@ Scope {
                     id:leftBlock
 
                     anchors.left: parent.left
-                    anchors.leftMargin: SolidTheme.paddingMonitorEdge
+                    anchors.leftMargin: Solid.spacing.paddingMonitorEdge
                     y:parent.height/5
 
                     spacing:15
@@ -38,7 +38,7 @@ Scope {
 
                     WorkSpacesViz {}
                     Text {
-                        color:SolidTheme.colorA
+                        color:Solid.color.colorA
                         text:Hyprland.activeToplevel ? Hyprland.activeToplevel.title : "what, notings open :(" 
                     }
 
@@ -60,7 +60,7 @@ Scope {
                     id:rightBlock
 
                     anchors.right: parent.right
-                    anchors.rightMargin: SolidTheme.paddingMonitorEdge
+                    anchors.rightMargin: Solid.spacing.paddingMonitorEdge
 
                     spacing:15
 
