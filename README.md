@@ -20,7 +20,8 @@ Arch - Linux 6.17.9.arch1-1  ~  hyprland 0.52.2-2  ~  quickshell 0.2.1-3 . this 
 check the todo file to see waht needs doing, or checkout Quickshell-plans to see my visson for the future
 
 
-
+AI disclosure:
+so ai, none of the code is writen by an llm, i dont need an llm to write code as bad as me.  research however is aided by Gemini, basicly ill ask it sometyhing then ill look at qml/quickshell docs for what gemini ws yaapping abt so usualy most of what i do isnt cooked
 
 as said earlier this is my first time using both git and github so there's going to be many roadblocks in the form of my own incompetence so please please please be patient
 
