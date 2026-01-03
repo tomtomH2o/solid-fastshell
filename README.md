@@ -19,8 +19,10 @@ Arch - Linux 6.17.9.arch1-1  ~  hyprland 0.52.2-2  ~  quickshell 0.2.1-3 . this 
 
 check the todo file to see waht needs doing, or checkout Quickshell-plans to see my visson for the future
 
+main branch is stable and will be updated every major change to the code  
+testing is unstable and will be broken at times as its were development is directly occurs 
 
-
+to contribute, fork the project verify your additions work, then maake a PR to merge with testing. then once testing is stable it will be merged with main 
 
 as said earlier this is my first time using both git and github so there's going to be many roadblocks in the form of my own incompetence so please please please be patient
 
