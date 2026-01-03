@@ -5,11 +5,19 @@ import Quickshell.Services.Mpris
 import Quickshell.Widgets
 import QtQuick.Shapes
 
+
+Rectangle{
+    height:root.height
+    width:root.width + 20
+    radius:height
+    color:Solid.color.primary
+
 ClippingRectangle {
+    x:10
     id: root
-    implicitHeight: textHere.implicitHeight+squigglePath.confAmplitude*2+10
+    implicitHeight: textHere.implicitHeight+squigglePath.confAmplitude*2+2
     implicitWidth: 300
-    color: '#00000000'
+    color: "transparent"
 
     
 
@@ -25,22 +33,18 @@ ClippingRectangle {
         var out = {}
         var MprisVars = Mpris.players.values
         for (const e of MprisVars) {
-            console.log("ts bro " + e.identity)
         }
         for (const player of desiredPlayers) {
-            console.log("looking for " + player)
             
             const found = MprisVars.find(p => p.identity == player)
-            console.log(found ? "found "+player : "failed :(" )
 
             const safeFound = found || mprisPlaceholderVars //makes the rest of the code not shit itself
             
             out[player] = safeFound
         }
-        console.log(" ")
         return out
     }
-    property var activePlayer: playerDict["Chrome"]
+    property var activePlayer: playerDict[desiredPlayers[0]]
 
     property var playing: activePlayer.playbackState == MprisPlaybackState.Playing
     
@@ -68,7 +72,7 @@ ClippingRectangle {
             id:progressBall
             width:squigglePath.confAmplitude*1.5
             height:squigglePath.confAmplitude*1.5
-            color:Solid.color.colorA
+            color:Solid.color.on_primary
             radius:width/2
             anchors.horizontalCenter:squiggleClip.right
             anchors.verticalCenter:squiggleClip.verticalCenter
@@ -87,7 +91,7 @@ ClippingRectangle {
 
                 ShapePath {
                     id:squigglePath
-                    strokeColor:Solid.color.colorA
+                    strokeColor:Solid.color.on_primary
                     fillColor:"transparent"
                     strokeWidth:2
 
@@ -101,7 +105,7 @@ ClippingRectangle {
             }
             Instantiator {
                 active: true
-                model:Math.floor(squiggleRoot.barLength/squigglePath.wavelength*2)+2  // jesus ts ugly
+                model:Math.floor(squiggleRoot.barLength/squigglePath.wavelength*2)+3  // jesus ts ugly
                 onObjectAdded: (index,object) => squigglePath.pathElements.push(object)
 
 
@@ -163,9 +167,9 @@ ClippingRectangle {
     
     Text {
         id: textHere
-        color: Solid.color.colorA
+        color: Solid.color.on_primary
         text: root.activePlayer.trackTitle
-        
+        antialiasing: true
         onWidthChanged: {
             //even tho is 0 miliseconds, incase like idk i press skip rly quick, we make it not do shi too much
             widthDelayTimer.stop()
@@ -176,9 +180,8 @@ ClippingRectangle {
             interval:0
             running:false
             repeat:false
-            onTriggered: {console.log(textHere.width)
+            onTriggered: {
                 if (textHere.width > root.implicitWidth) {
-                    console.log("owo so big *blushes*")
                     bigTextAnim.start()
                 } else {
                     bigTextAnim.stop()
@@ -209,4 +212,5 @@ ClippingRectangle {
         }
     }
     
+}
 }

@@ -8,7 +8,7 @@ Text {
 
     
 
-    color: Solid.color.colorA
+    color: Solid.color.on_primary
     text: Qt.formatDateTime(clock.date, timeFormat)
 
     SystemClock {
