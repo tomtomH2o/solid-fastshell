@@ -7,6 +7,85 @@ import Quickshell.Widgets
 
 Scope {
     Bar {}
+    FloatingWindow {
+        id:dasWindow
+        color: '#00000000'
+        function checktouching(rectA,rectB) {
+
+
+        
+        }
+
+
+
+
+        Rectangle {
+            id:p
+            
+            width:height; height:20
+            color:Solid.color.primary
+
+
+
+
+            NumberAnimation {
+                id:moveRight
+                target: p
+                property: "x"
+                to: 100
+                running:true
+                duration: 1123
+                easing.type: Easing.InOutQuad
+                onFinished: moveLeft.running=true
+            }
+            NumberAnimation {
+                id:moveLeft
+                target: p
+                property: "x"
+                to: 0
+                duration: 1000
+                easing.type: Easing.InOutQuad
+                onFinished: moveRight.running=true
+            }
+
+
+        }
+        Rectangle {
+            id:b
+            
+            width:height; height:20
+            y:height/2
+            color:Solid.color.primary
+
+            NumberAnimation {
+                id:moveRightb
+                target: b
+                property: "x"
+                to: 100
+                running:true
+                duration: 1500
+                easing.type: Easing.InOutQuad
+                onFinished: moveLeftb.running=true
+            }
+            NumberAnimation {
+                id:moveLeftb
+                target: b
+                property: "x"
+                to: 0
+                duration: 1500
+                easing.type: Easing.InOutQuad
+                onFinished: moveRightb.running=true
+            }
+
+
+        }
+        FrameAnimation{
+            running:true
+            onTriggered:dasWindow.checktouching(p,b)
+        }
+
+
+    }
 //    FloatingWindow{
 //        color:"transparent"
 //        Component {

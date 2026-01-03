@@ -33,19 +33,15 @@ ClippingRectangle {
         var out = {}
         var MprisVars = Mpris.players.values
         for (const e of MprisVars) {
-            console.log("ts bro " + e.identity)
         }
         for (const player of desiredPlayers) {
-            console.log("looking for " + player)
             
             const found = MprisVars.find(p => p.identity == player)
-            console.log(found ? "found "+player : "failed :(" )
 
             const safeFound = found || mprisPlaceholderVars //makes the rest of the code not shit itself
             
             out[player] = safeFound
         }
-        console.log(" ")
         return out
     }
     property var activePlayer: playerDict[desiredPlayers[0]]
@@ -184,9 +180,8 @@ ClippingRectangle {
             interval:0
             running:false
             repeat:false
-            onTriggered: {console.log(textHere.width)
+            onTriggered: {
                 if (textHere.width > root.implicitWidth) {
-                    console.log("owo so big *blushes*")
                     bigTextAnim.start()
                 } else {
                     bigTextAnim.stop()

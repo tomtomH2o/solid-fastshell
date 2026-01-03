@@ -30,7 +30,7 @@ Rectangle{
                     hoverEnabled: true
                     onClicked: Hyprland.dispatch("workspace "+modelData.id)
                     onHoveredChanged: {
-                        if (containsMouse) {  
+                        if (containsMouse) {   
                         rectUnderMouse.x = parent.x
                         rectUnderMouse.height = parent.height
                     }}
