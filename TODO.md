@@ -35,6 +35,7 @@ done: what need me to explain this?v
 
 
 finished:
+<i>
 - [x] learn Instantiator and use it to make a fancy ass squiggle for the MprisThingy - done
 
 - [x] take the squiggle out of shell.qml and into MprisThingy.qml and tidy up both files - done
@@ -42,6 +43,7 @@ finished:
 - [x] make theme/colour managent better by having it read form some config file and spruse up the names 
 
 - [x] cause its kinda cooked - done - moved to using matugen and it writes to SolidColors.qml
+</i>
 
 
 
