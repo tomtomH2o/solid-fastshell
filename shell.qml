@@ -1,4 +1,3 @@
-
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick
@@ -7,85 +6,92 @@ import Quickshell.Widgets
 
 Scope {
     Bar {}
-    FloatingWindow {
-        id:dasWindow
-        color: '#00000000'
-        function checktouching(rectA,rectB) {
-
-
-        
-        }
-
-
-
-
-        Rectangle {
-            id:p
-            
-            width:height; height:20
-            color:Solid.color.primary
-
-
-
-
-            NumberAnimation {
-                id:moveRight
-                target: p
-                property: "x"
-                to: 100
-                running:true
-                duration: 1123
-                easing.type: Easing.InOutQuad
-                onFinished: moveLeft.running=true
-            }
-            NumberAnimation {
-                id:moveLeft
-                target: p
-                property: "x"
-                to: 0
-                duration: 1000
-                easing.type: Easing.InOutQuad
-                onFinished: moveRight.running=true
-            }
-
-
-        }
-        Rectangle {
-            id:b
-            
-            width:height; height:20
-            y:height/2
-            color:Solid.color.primary
-
-            NumberAnimation {
-                id:moveRightb
-                target: b
-                property: "x"
-                to: 100
-                running:true
-                duration: 1500
-                easing.type: Easing.InOutQuad
-                onFinished: moveLeftb.running=true
-            }
-            NumberAnimation {
-                id:moveLeftb
-                target: b
-                property: "x"
-                to: 0
-                duration: 1500
-                easing.type: Easing.InOutQuad
-                onFinished: moveRightb.running=true
-            }
-
-
-        }
-        FrameAnimation{
-            running:true
-            onTriggered:dasWindow.checktouching(p,b)
-        }
-
-
-    }
+//    FloatingWindow {
+//        id:dasWindow
+//        
+//        color: '#00000000'
+//        function checktouching( itemA ,itemB ) {
+//            // Access properties to register them as dependencies for the binding system
+//            itemA.x; itemA.y;
+//            itemB.x; itemB.y;
+//
+//            var rectA = itemA.mapToItem(null, 0, 0, itemA.width, itemA.height)
+//            var rectB = itemB.mapToItem(null, 0, 0, itemB.width, itemB.height)
+//        
+//            return (
+//                rectA.x+rectA.width > rectB.x &&
+//                rectA.x             < rectB.x+rectB.width &&
+//                rectA.y             < rectB.y+rectB.height &&
+//                rectA.y+rectA.height> rectB.y
+//            )
+//        }
+//
+//        property var touching: checktouching(p,b)
+//
+//
+//        Rectangle {
+//            id:p
+//            
+//            width:height; height:20
+//            color:dasWindow.touching ? "green" : Solid.color.primary
+//
+//
+//
+//
+//            NumberAnimation {
+//                id:moveRight
+//                target: p
+//                property: "y"
+//                to: 100
+//                running:true
+//                duration: 4000
+//                easing.type: Easing.InOutQuad
+//                onFinished: moveLeft.running=true
+//            }
+//            NumberAnimation {
+//                id:moveLeft
+//                target: p
+//                property: "y"
+//                to: 0
+//                duration: 5963
+//                easing.type: Easing.InOutQuad
+//                onFinished: moveRight.running=true
+//            }
+//
+//
+//        }
+//        Rectangle {
+//            id:b
+//            
+//            width:height; height:20
+//            y:height/2
+//            color:dasWindow.touching ? "green" : Solid.color.primary
+//
+//            NumberAnimation {
+//                id:moveRightb
+//                target: b
+//                property: "y"
+//                to: 100
+//                running:true
+//                duration: 1500
+//                easing.type: Easing.InOutQuad
+//                onFinished: moveLeftb.running=true
+//            }
+//            NumberAnimation {
+//                id:moveLeftb
+//                target: b
+//                property: "y"
+//                to: 0
+//                duration: 1500
+//                easing.type: Easing.InOutQuad
+//                onFinished: moveRightb.running=true
+//            }
+//
+//
+//        }
+//
+//
+//    }
 //    FloatingWindow{
 //        color:"transparent"
 //        Component {

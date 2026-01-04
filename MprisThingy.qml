@@ -44,7 +44,7 @@ ClippingRectangle {
         }
         return out
     }
-    property var activePlayer: playerDict[desiredPlayers[0]]
+    property var activePlayer: playerDict[desiredPlayers[1]]
 
     property var playing: activePlayer.playbackState == MprisPlaybackState.Playing
     
