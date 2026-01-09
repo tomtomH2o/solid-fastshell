@@ -17,12 +17,5 @@ Item {
     property color background: "#141318"
     property color on_background: "#e6e1e9"
 
-    //old stuff to be removed
-    property color colorA: '#FEFFFF'
-    property color colorSelected: '#87805D'
-    property color colorTextInacive: '#BF5716'
-    property color colorTextDimm: '#577188'
-    property color colorBG: '#003B456E'
-
 }
 //33275e

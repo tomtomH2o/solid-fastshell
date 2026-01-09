@@ -51,7 +51,7 @@ Rectangle{
                 property bool active:modelData.active
                 text: modelData.name
                 //color:mouseHeres.containsMouse ? Solid.color.on_primary_container : modelData.focused ?  Solid.color.on_primary_container : modelData.active ? Solid.color.on_primary : Solid.color.on_primary
-                color:root.mouseInRow ? checktouching(textnumber,rectUnderMouse) ? "green":"red" : "yellow" 
+                color:checktouching(textnumber,rectUnderMouse) ? Solid.color.on_primary_container:Solid.color.on_primary
                 MouseArea {
                     id: mouseInText
                     anchors.fill: parent
@@ -79,7 +79,7 @@ Rectangle{
         radius:width
         x:root.mouseInRow ? root.textUnderMouseX : root.activeTextX
         
-        Behavior on x {SpringAnimation {spring:4; damping:0.2}}
+        Behavior on x {SpringAnimation {spring:4; damping:0.5}}
         
         
     }
