@@ -95,7 +95,7 @@ ClippingRectangle {
                     fillColor:"transparent"
                     strokeWidth:2
 
-                    property real amplitude: 5
+                    property real amplitude: confAmplitude
                     property real confAmplitude: 5
                     property real wavelength: confAmplitude*4
                     property real phase: 0

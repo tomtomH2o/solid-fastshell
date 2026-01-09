@@ -4,6 +4,7 @@ import QtQuick
 import Quickshell.Hyprland
 
 Rectangle{
+    id:root
     width:workspaceRow.width+10
     height:workspaceRow.height
     radius:workspaceRow.height
@@ -23,15 +24,15 @@ Rectangle{
             rectA.y+rectA.height-antiMargin > rectB.y
         )
     }
+    property bool mouseInRow: countInRow>0
+    property var countInRow: false
+
+    property var textUnderMouseX: 0
+    property var activeTextX: 25
 
 
 
-    MouseArea {
-        id: mouseInRow
-        z:2
-        anchors.fill: parent
-        hoverEnabled: true
-    }
+    
 
     Row{
         z:2
@@ -43,23 +44,29 @@ Rectangle{
             
             model: Hyprland.workspaces
             Text {
+                
                 id: textnumber
                 required property var modelData
+                property bool imFocused: modelData.focused
+                property bool active:modelData.active
                 text: modelData.name
                 //color:mouseHeres.containsMouse ? Solid.color.on_primary_container : modelData.focused ?  Solid.color.on_primary_container : modelData.active ? Solid.color.on_primary : Solid.color.on_primary
-                color:mouseInRow.containsMouse ? checktouching(textnumber,rectUnderMouse) ? "green":"red" : "yellow" 
+                color:root.mouseInRow ? checktouching(textnumber,rectUnderMouse) ? "green":"red" : "yellow" 
                 MouseArea {
                     id: mouseInText
                     anchors.fill: parent
-                    anchors.margins: -2
+                    anchors.margins:0-(workspaceRow.spacing/2+1)
                     hoverEnabled: true
-                    onClicked: Hyprland.dispatch("workspace "+modelData.id)
-                    onHoveredChanged: {
-                        if (containsMouse) {   
-                            rectUnderMouse.x = parent.x
-                        }
+                    onClicked: parent.modelData.activate()
+                    onEntered: {
+                        root.textUnderMouseX = parent.x
+                        root.countInRow ++
+                    }
+                    onExited: {
+                        root.countInRow --
                     }
                 }
+                onImFocusedChanged:if (imFocused) {activeTextX=x}
             }
         }
     }
@@ -70,6 +77,7 @@ Rectangle{
 
         width:height; height:workspaceRow.height
         radius:width
+        x:root.mouseInRow ? root.textUnderMouseX : root.activeTextX
         
         Behavior on x {SpringAnimation {spring:4; damping:0.2}}
         

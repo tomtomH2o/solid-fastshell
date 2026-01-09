@@ -10,7 +10,7 @@ heres the key:
 ### todo:
 
 - [ ] spruce up workspace viz - working
-    - [ ] figure out how to detect if objects are touching - working
+    - [x] figure out how to detect if objects are touching - working
 
 - [ ] make a gui wallapaper switcher - currently commented out in shell.qml - working
 

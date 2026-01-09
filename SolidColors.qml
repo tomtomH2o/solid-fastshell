@@ -10,10 +10,10 @@ Item {
     property color on_surface: "#e6e1e9"
     property color outline: "#938f99"
     property color outline_variant: "#48454e"
-    property color primary_container: "#493f77"
-    property color on_primary_container: "#e6deff"
-    property color primary: "#cabeff"
-    property color on_primary: "#32285e"
+    property color primary_container: "#4a3e76"
+    property color on_primary_container: "#e7deff"
+    property color primary: "#ccbeff"
+    property color on_primary: "#33275e"
     property color background: "#141318"
     property color on_background: "#e6e1e9"
 
@@ -25,4 +25,4 @@ Item {
     property color colorBG: '#003B456E'
 
 }
-//32285e
+//33275e
