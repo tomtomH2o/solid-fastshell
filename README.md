@@ -1,3 +1,7 @@
+this instance is deprecated and will not recive updates
+for active development please visit https://git.gay/NotALiquid/SolidShell 
+
+
 yo
 this is my first git/github project so if you have advice i'll gladly take it 
 
